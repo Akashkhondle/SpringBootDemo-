@@ -6,4 +6,16 @@ public class Hospital {
     public int totalBeds;
     public int totalPatients;
     public int totalDoctors;
+
+    public Hospital(int id, String name, int totalBeds, int totalPatients, int totalDoctors)
+    {
+        this.id = id;
+        this.name = name;
+        this.totalBeds = totalBeds;
+        this.totalPatients = totalPatients;
+        this.totalDoctors = totalDoctors;
+    }
+
+    public Hospital() {
+    }
 }

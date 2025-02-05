@@ -29,4 +29,9 @@ public class HospitalService {
         hospitalRepository.addHospital(id,hospital);
     }
 
+
+    public Hospital getHospitalDetailById(int id)
+    {
+        return hospitalRepository.getHospitalDetailById(id);
+    }
 }

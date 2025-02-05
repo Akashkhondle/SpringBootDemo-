@@ -2,9 +2,7 @@ package com.hospitalmanagementsystem.Hospital.Management.System.controller;
 
 import com.hospitalmanagementsystem.Hospital.Management.System.Model.Hospital;
 import com.hospitalmanagementsystem.Hospital.Management.System.service.HospitalService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,12 +19,9 @@ public class HospitalController {
     }
     int count =0;
     @PostMapping("/api/addhospital")
-    public String addHospital(){
-       Hospital hospital = new Hospital();
-       hospital.name = "Akash";
-       hospital.id =count;
-       String id = count + "";
-       count++;
+    public String addHospital(@RequestBody Hospital hospital){
+
+       String id = hospital.id + "";
        hospitalService.addHospital(id,hospital);
        return "Hospital object got added";
 
@@ -36,6 +31,8 @@ public class HospitalController {
     {
 
         return "hello";
+
+
     }
 
     @GetMapping("/api/sayBye")
@@ -50,4 +47,17 @@ public class HospitalController {
     {
         return "Create Post";
     }
+
+    @GetMapping("/api/hospital")
+    public Hospital getSpecificHospitalDetail(@RequestParam int hospitalId)
+    {
+        return hospitalService.getHospitalDetailById(hospitalId);
+    }
+
+    @GetMapping("/api/hospital/{hospitalId}/detail")
+    public Hospital getSpecificHospitalDetailByUsingPathVariable(@PathVariable int hospitalId)
+    {
+         return hospitalService.getHospitalDetailById(hospitalId);
+    }
+
 }
