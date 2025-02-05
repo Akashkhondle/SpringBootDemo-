@@ -2,6 +2,7 @@ package com.hospitalmanagementsystem.Hospital.Management.System.controller;
 
 import com.hospitalmanagementsystem.Hospital.Management.System.Model.Hospital;
 import com.hospitalmanagementsystem.Hospital.Management.System.service.HospitalService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,7 +10,8 @@ import java.util.List;
 @RestController
 public class HospitalController {
    // @RestController
-   HospitalService hospitalService = new HospitalService();
+   @Autowired
+   HospitalService hospitalService;
    @GetMapping("/api/hospitals")
     public List<Hospital> getAllHospital(){
 

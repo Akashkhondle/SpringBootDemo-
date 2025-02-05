@@ -2,6 +2,7 @@ package com.hospitalmanagementsystem.Hospital.Management.System.service;
 
 import com.hospitalmanagementsystem.Hospital.Management.System.Model.Hospital;
 import com.hospitalmanagementsystem.Hospital.Management.System.repository.HospitalRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,7 +11,8 @@ import java.util.List;
 
 @Service
 public class HospitalService {
-    HospitalRepository hospitalRepository = new HospitalRepository();
+    @Autowired
+    HospitalRepository hospitalRepository;
     public List<Hospital> getAllHospitals(){
 
 
